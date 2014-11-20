@@ -49,7 +49,9 @@
       (f-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))))
 
 (define (iter-f n)
-  (f-iter 2 1 0 n))
+  (if (< n 3)
+      n
+      (f-iter 2 1 0 n)))
 
 #| 
 If I stored the results in a array result[0,1,2,f(3),...]
@@ -70,4 +72,5 @@ f(n) = result[n + 1] = a at iteration m = n + 2
         ((= coluna linha) 1)
         ((> coluna linha) 0)
         ((< coluna 1) 0)
-        (else (+ (pascal (- linha 1) coluna) (pascal (- linha 1) (- coluna 1)))))) 
+        (else (+ (pascal (- linha 1) coluna) 
+                 (pascal (- linha 1) (- coluna 1))))))
