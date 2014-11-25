@@ -20,5 +20,5 @@
 (define (mr-test n)
   (define (test a)
     (= (expmod a (- n 1) n) 1))
-  (and (test 2) (test 7) (test 61)))
-
+  (if (or (= n 2) (= n 7) (= n 61)) #t
+      (and (test 2) (test 7) (test 61))))
